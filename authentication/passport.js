@@ -9,7 +9,7 @@ options.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 options.hiddenOrKey = connection.hiddenOrKey;
 
 // Check jwt_payload sent by login Endpoint
-const passport = () => {
+module.exports = passport => {
     passport.use(
         new JwtStrategy(opts, (jwt_payload, done) => {
             User.findById(jwt_payload.id)
@@ -23,5 +23,3 @@ const passport = () => {
         })
     );
 };
-
-module.exports = passport;
