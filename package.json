@@ -1,0 +1,19 @@
+{
+  "name": "quizengine",
+  "version": "1.0.0",
+  "description": "Quiz Management Tool for Education Establishments and Training Providers",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stupot83/QuizEngine.git"
+  },
+  "author": "Stuart Priestley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Stupot83/QuizEngine/issues"
+  },
+  "homepage": "https://github.com/Stupot83/QuizEngine#readme"
+}
