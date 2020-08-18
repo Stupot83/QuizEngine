@@ -8,7 +8,7 @@ describe("When the Registration page is loaded", () => {
     });
 
     it("then the url is correct", () => {
-     registrationPage.checkRegistrationUrl();
+        registrationPage.checkRegistrationUrl();
     });
 
     it("then the header is visible", () => {

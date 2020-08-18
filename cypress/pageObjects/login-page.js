@@ -10,7 +10,7 @@ const emailInput = "#email";
 const passwordInput = "#password";
 
 function checkLoginUrl() {
-    cy.url().should('eq', 'http://localhost:3000/login'); 
+    cy.url().should("eq", "http://localhost:3000/login");
 }
 
 function headerIsVisible() {
@@ -18,7 +18,7 @@ function headerIsVisible() {
 }
 
 function checkHeaderText() {
-    cy.get(header).should('have.text', 'Login to QuizEngine');
+    cy.get(header).should("have.text", "Login to QuizEngine");
 }
 
 function emailHeaderIsVisible() {
@@ -26,7 +26,7 @@ function emailHeaderIsVisible() {
 }
 
 function checkEmailHeaderText() {
-    cy.get(emailHeader).should('have.text', 'Email');
+    cy.get(emailHeader).should("have.text", "Email");
 }
 
 function passwordHeaderIsVisible() {
@@ -34,7 +34,7 @@ function passwordHeaderIsVisible() {
 }
 
 function checkPasswordHeaderText() {
-    cy.get(passwordHeader).should('have.text', 'Password');
+    cy.get(passwordHeader).should("have.text", "Password");
 }
 
 function checkLoginButton() {
@@ -42,7 +42,7 @@ function checkLoginButton() {
 }
 
 function checkLoginButtonText() {
-    cy.get(loginButton).should('have.text', 'Login');
+    cy.get(loginButton).should("have.text", "Login");
 }
 
 function redirectMessageIsVisible() {
@@ -50,7 +50,7 @@ function redirectMessageIsVisible() {
 }
 
 function checkRedirectMessageText() {
-    cy.get(redirectMessage).should('have.text', `Not registered for QuizEngine? Register`);
+    cy.get(redirectMessage).should("have.text", `Not registered for QuizEngine? Register`);
 }
 
 function registrationLinkIsVisible() {
@@ -58,7 +58,7 @@ function registrationLinkIsVisible() {
 }
 
 function checkRegistrationLinkText() {
-    cy.get(registrationLink).should('have.text', 'Register');
+    cy.get(registrationLink).should("have.text", "Register");
 }
 
 function fillEmailField() {
@@ -85,4 +85,4 @@ module.exports = {
     fillEmailField,
     fillPasswordField,
     checkLoginUrl
-}; 
+};

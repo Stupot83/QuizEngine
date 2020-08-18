@@ -6,7 +6,7 @@ describe("When the Landing page is loaded", () => {
     });
 
     it("then the url is correct", () => {
-     landingPage.checkLandingUrl();
+        landingPage.checkLandingUrl();
     });
 
     it("then the header is visible", () => {
