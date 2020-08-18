@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { loginUser } from "../../actions/actionsForAuthentication";
 import "../../sass/Login.scss";
 import Button from "@material-ui/core/Button";
 import LockOpenIcon from "@material-ui/icons/LockOpen";
@@ -14,6 +17,17 @@ class Login extends Component {
         };
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.auth.passedAuthentication) {
+            this.props.history.push("/home"); // Redirect User to Home Page once logged in
+        }
+        if (nextProps.invalidEntries) {
+            this.setState({
+                invalidEntries: nextProps.invalidEntries
+            });
+        }
+    }
+
     onChange = e => {
         this.setState({ [e.target.id]: e.target.value });
     };
@@ -25,6 +39,8 @@ class Login extends Component {
             email: this.state.email,
             password: this.state.password
         };
+
+        this.props.loginUser(userData);
     };
 
     render() {
@@ -99,4 +115,15 @@ class Login extends Component {
     }
 }
 
-export default Login;
+Login.propTypes = {
+    loginUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
+    invalidEntries: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = state => ({
+    auth: state.auth,
+    invalidEntries: state.invalidEntries
+});
+
+export default connect(mapStateToProps, { loginUser })(Login);
