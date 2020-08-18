@@ -1,14 +1,10 @@
 const express = require("express");
-const cors = require("cors");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const login = require("./routes/login-api");
 const register = require("./routes/registration-api");
 const app = express();
-
-// Setup Cors
-app.use(cors());
 
 // Setup body-parser middleware
 app.use(
