@@ -1,5 +1,8 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { registerNewUser } from "../../actions/actionsForAuthentication";
 import "../../sass/Registration.scss";
 import Button from "@material-ui/core/Button";
 import CreateIcon from "@material-ui/icons/Create";
@@ -16,6 +19,14 @@ class Registration extends Component {
         };
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.invalidEntries) {
+            this.setState({
+                invalidEntries: nextProps.invalidEntries
+            });
+        }
+    }
+
     onChange = e => {
         this.setState({ [e.target.id]: e.target.value });
     };
@@ -29,6 +40,8 @@ class Registration extends Component {
             password: this.state.password,
             password2: this.state.password2
         };
+
+        this.props.registerNewUser(newUser, this.props.history);
     };
 
     render() {
@@ -139,4 +152,17 @@ class Registration extends Component {
     }
 }
 
-export default Registration;
+Registration.propTypes = {
+    registerNewUser: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired,
+    invalidEntries: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+    auth: state.auth,
+    invalidEntries: state.invalidEntries
+});
+
+export default connect(mapStateToProps, { registerNewUser })(
+    withRouter(Registration)
+);

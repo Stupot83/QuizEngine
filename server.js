@@ -2,8 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
-const login = require("./routes/login-api");
-const register = require("./routes/registration-api");
+const users = require("./routes/api/users");
 const app = express();
 
 // Setup body-parser middleware
@@ -35,8 +34,7 @@ app.use(passport.initialize());
 require("./authentication/passport")(passport);
     
 // Setup Routes
-app.use("/login", login);
-app.use("/register", register);
+app.use("/api/users", users);
 
 const port = process.env.PORT || 7000;
 

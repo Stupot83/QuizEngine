@@ -1,7 +1,7 @@
 const Validator = require("validator");
 const isEmpty = require("is-empty");
 
-const validationForLogin = data => {
+module.exports = function validationForLogin(data) {
     let invalidEntries = {};
 
     // Change empty fields to empty string to use Validator
@@ -24,5 +24,3 @@ const validationForLogin = data => {
         isValid: isEmpty(invalidEntries)
     };
 };
-
-module.exports = validationForLogin;
