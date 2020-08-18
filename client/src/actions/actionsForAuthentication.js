@@ -1,5 +1,5 @@
 import axios from "axios";
-import authenticationToken from "../../../authentication/authenticationToken";
+import authenticationToken from "./authenticationToken";
 import jwt_decode from "jwt-decode";
 
 import { RETRIEVE_INVALID_ENTRIES, ESTABLISH_USER, LOADING_USER } from "./types";
@@ -30,7 +30,7 @@ export const loginUser = userData => dispatch => {
             // Decode the token to get the data for the Dev
             const decodedJwt = jwt_decode(jwt);
             // Set the current Dev
-            dispatch(setCurrentDev(decodedJwt));
+            dispatch(establishUser(decodedJwt));
         })
         .catch(err =>
             dispatch({
