@@ -9,15 +9,15 @@ import Login from "./components/entry/Login";
 
 function App() {
     return (
-      <Provider store={quizEngineStore}>
-        <Router>
-            <div className="App">
-                <Topnav />
-                <Route exact path="/" component={Landing} />
-                <Route exact path="/register" component={Registration} />
-                <Route exact path="/login" component={Login} />
-            </div>
-        </Router>
+        <Provider store={quizEngineStore}>
+            <Router>
+                <div className="App">
+                    <Topnav />
+                    <Route exact path="/" component={Landing} />
+                    <Route exact path="/register" component={Registration} />
+                    <Route exact path="/login" component={Login} />
+                </div>
+            </Router>
         </Provider>
     );
 }
