@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { logoutUser } from "../actions/actionsForAuthentication";
 import Button from "@material-ui/core/Button";
@@ -34,4 +35,4 @@ const mapStateToProps = state => ({
     auth: state.auth
 });
 
-export default connect(mapStateToProps, { logoutUser })(Home);
+export default connect(mapStateToProps, { logoutUser })(withRouter(Home));
