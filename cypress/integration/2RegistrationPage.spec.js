@@ -7,6 +7,10 @@ describe("When the Registration page is loaded", () => {
         landingPage.clickRegistrationButton();
     });
 
+    it("then the url is correct", () => {
+     registrationPage.checkRegistrationUrl();
+    });
+
     it("then the header is visible", () => {
         registrationPage.headerIsVisible();
     });
@@ -27,7 +31,7 @@ describe("When the Registration page is loaded", () => {
         registrationPage.emailHeaderIsVisible();
     });
 
-    it("the email header text is displayed correctly", () => {
+    it("then the email header text is displayed correctly", () => {
         registrationPage.checkEmailHeaderText();
     });
 
@@ -35,7 +39,7 @@ describe("When the Registration page is loaded", () => {
         registrationPage.passwordHeaderIsVisible();
     });
 
-    it("the password header text is displayed correctly", () => {
+    it("then the password header text is displayed correctly", () => {
         registrationPage.checkPasswordHeaderText();
     });
 
@@ -43,48 +47,48 @@ describe("When the Registration page is loaded", () => {
         registrationPage.confirmPasswordHeaderIsVisible();
     });
 
-    it("the confirmPassword header text is displayed correctly", () => {
+    it("then the confirmPassword header text is displayed correctly", () => {
         registrationPage.checkConfirmPasswordHeaderText();
     });
 
-    it("the registration button is visible", () => {
+    it("then the registration button is visible", () => {
         registrationPage.checkRegistrationButton();
     });
 
-    it("the registration button text is displayed correctly", () => {
+    it("then the registration button text is displayed correctly", () => {
         registrationPage.checkRegistrationButtonText();
     });
 
-    it("the redirect message is visible", () => {
+    it("then the redirect message is visible", () => {
         registrationPage.redirectMessageIsVisible();
     });
 
-    it("the redirect message text is displayed correctly", () => {
+    it("then the redirect message text is displayed correctly", () => {
         registrationPage.checkRedirectMessageText();
     });
 
-    it("the login link should be visible", () => {
+    it("then the login link should be visible", () => {
         registrationPage.loginLinkIsVisible();
     });
 
-    it("the login link text should be displayed correctly", () => {
+    it("then the login link text should be displayed correctly", () => {
         registrationPage.checkLoginLinkText();
     });
 
     describe("When the Registration form is filled in", () => {
-        it("the name field should be populated correctly", () => {
+        it("then the name field should be populated correctly", () => {
             registrationPage.fillNameField();
         });
 
-        it("the email field should be populated correctly", () => {
+        it("then the email field should be populated correctly", () => {
             registrationPage.fillEmailField();
         });
 
-        it("the password field should be populated correctly", () => {
+        it("then the password field should be populated correctly", () => {
             registrationPage.fillPasswordField();
         });
 
-        it("the confirmPassword field should be populated correctly", () => {
+        it("then the confirmPassword field should be populated correctly", () => {
             registrationPage.fillConfirmPasswordField();
         });
     });

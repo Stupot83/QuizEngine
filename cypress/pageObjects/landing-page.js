@@ -37,6 +37,14 @@ function clickRegistrationButton() {
     click(registrationButton);
 }
 
+function clickLoginButton() {
+ click(loginButton);
+}
+
+function checkLandingUrl() {
+ cy.url().should('eq', 'http://localhost:3000/'); 
+}
+
 module.exports = {
     headerIsVisible,
     checkHeaderText,
@@ -45,5 +53,7 @@ module.exports = {
     checkRegistrationButtonText,
     loginButtonIsVisible,
     checkLoginButtonText,
-    clickRegistrationButton
+    clickRegistrationButton,
+    clickLoginButton,
+    checkLandingUrl
 };

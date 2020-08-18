@@ -93,6 +93,10 @@ function fillConfirmPasswordField() {
     cy.get(confirmPasswordInput).type("editedit");
 }
 
+function checkRegistrationUrl() {
+ cy.url().should('eq', 'http://localhost:3000/register'); 
+}
+
 module.exports = {
     headerIsVisible,
     checkHeaderText,
@@ -113,5 +117,6 @@ module.exports = {
     fillNameField,
     fillEmailField,
     fillPasswordField,
-    fillConfirmPasswordField
+    fillConfirmPasswordField,
+    checkRegistrationUrl
 };
