@@ -10,7 +10,7 @@ class Login extends Component {
         this.state = {
             email: "",
             password: "",
-            invalidEntries: {},
+            invalidEntries: {}
         };
     }
 
@@ -23,7 +23,7 @@ class Login extends Component {
 
         const userData = {
             email: this.state.email,
-            password: this.state.password,
+            password: this.state.password
         };
     };
 
@@ -32,16 +32,16 @@ class Login extends Component {
 
         return (
             <div className="Login_container">
-                <div id="Login_header" className="Login_header">Login to QuizEngine</div>
+                <div id="Login_header" className="Login_header">
+                    Login to QuizEngine
+                </div>
 
-                <form
-                    className="Login_form"
-                    noValidate
-                    onSubmit={this.onSubmit}
-                >
+                <form className="Login_form" noValidate onSubmit={this.onSubmit}>
                     <div className="Login_details">
                         <label>
-                            <div id="Email_header" className="Login_label">Email</div>
+                            <div id="Email_header" className="Login_label">
+                                Email
+                            </div>
                             <input
                                 onChange={this.onChange}
                                 value={this.state.email}
@@ -57,7 +57,9 @@ class Login extends Component {
 
                     <div className="Login_details">
                         <label>
-                            <div id="Password_header" className="Login_label">Password</div>
+                            <div id="Password_header" className="Login_label">
+                                Password
+                            </div>
                             <input
                                 onChange={this.onChange}
                                 value={this.state.password}
@@ -86,7 +88,9 @@ class Login extends Component {
                     <div className="Login_bottom">
                         <p id="Redirect_message">
                             Not registered for QuizEngine?{" "}
-                            <Link to="/register" id="Registration_link" className="Login_registration_link">Register</Link>
+                            <Link to="/register" id="Registration_link" className="Login_registration_link">
+                                Register
+                            </Link>
                         </p>
                     </div>
                 </form>
