@@ -12,7 +12,7 @@ class Registration extends Component {
             email: "",
             password: "",
             password2: "",
-            invalidEntries: {},
+            invalidEntries: {}
         };
     }
 
@@ -27,7 +27,7 @@ class Registration extends Component {
             name: this.state.name,
             email: this.state.email,
             password: this.state.password,
-            password2: this.state.password2,
+            password2: this.state.password2
         };
     };
 
@@ -36,16 +36,16 @@ class Registration extends Component {
 
         return (
             <div className="Registration_container">
-                <div className="Registration_header">Register for QuizEngine</div>
+                <div id="Registration_header" className="Registration_header">
+                    Register for QuizEngine
+                </div>
 
-                <form
-                    className="Registration_form"
-                    noValidate
-                    onSubmit={this.onSubmit}
-                >
+                <form className="Registration_form" noValidate onSubmit={this.onSubmit}>
                     <div className="Registration_details">
                         <label>
-                            <div className="Registration_label">Name</div>
+                            <div id="Name_field" className="Registration_label">
+                                Name
+                            </div>
                             <input
                                 onChange={this.onChange}
                                 value={this.state.name}
@@ -55,15 +55,15 @@ class Registration extends Component {
                                 autoComplete="off"
                                 className="Registration_field"
                             />
-                            <div className="Registration_invalid_entry">
-                                {invalidEntries.name}
-                            </div>
+                            <div className="Registration_invalid_entry">{invalidEntries.name}</div>
                         </label>
                     </div>
 
                     <div className="Registration_details">
                         <label>
-                            <div className="Registration_label">Email</div>
+                            <div id="Email_field" className="Registration_label">
+                                Email
+                            </div>
                             <input
                                 onChange={this.onChange}
                                 value={this.state.email}
@@ -73,15 +73,15 @@ class Registration extends Component {
                                 autoComplete="off"
                                 className="Registration_field"
                             />
-                            <div className="Registration_invalid_entry">
-                                {invalidEntries.email}
-                            </div>
+                            <div className="Registration_invalid_entry">{invalidEntries.email}</div>
                         </label>
                     </div>
 
                     <div className="Registration_details">
                         <label>
-                            <div className="Registration_label">Password</div>
+                            <div id="Password_field" className="Registration_label">
+                                Password
+                            </div>
                             <input
                                 onChange={this.onChange}
                                 value={this.state.password}
@@ -91,15 +91,13 @@ class Registration extends Component {
                                 autoComplete="off"
                                 className="Registration_field"
                             />
-                            <div className="Registration_invalid_entry">
-                                {invalidEntries.password}
-                            </div>
+                            <div className="Registration_invalid_entry">{invalidEntries.password}</div>
                         </label>
                     </div>
 
                     <div className="Registration_details">
                         <label>
-                            <div className="Registration_label">
+                            <div id="Confirm_password_field" className="Registration_label">
                                 Confirm Password
                             </div>
                             <input
@@ -111,27 +109,28 @@ class Registration extends Component {
                                 autoComplete="off"
                                 className="Registration_field"
                             />
-                            <div className="Registration_invalid_entry">
-                                {invalidEntries.password2}
-                            </div>
+                            <div className="Registration_invalid_entry">{invalidEntries.password2}</div>
                         </label>
                     </div>
 
                     <div className="Registration_button_box">
                         <Button
+                            id="Registration_button"
                             type="submit"
                             variant="contained"
                             size="large"
-                            className="Registration_button" 
+                            className="Registration_button"
                             startIcon={<CreateIcon />}
                         >
-                            Sign-Up
+                            Register
                         </Button>
                     </div>
                     <div className="Registration_bottom">
-                        <p>
+                        <p id="Redirect_message">
                             Already registered for QuizEngine?{" "}
-                            <Link to="/login" className="Registration_login_link">Login</Link>
+                            <Link to="/login" id="Login_link" className="Registration_login_link">
+                                Login
+                            </Link>
                         </p>
                     </div>
                 </form>

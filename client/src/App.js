@@ -6,13 +6,13 @@ import Registration from "./components/entry/Registration";
 
 function App() {
     return (
-      <Router>
-      <div className="App">
-              <Topnav />
-              <Route exact path="/" component={Landing} />
-              <Route exact path="/register" component={Registration} />
-      </div>
-  </Router>
+        <Router>
+            <div className="App">
+                <Topnav />
+                <Route exact path="/" component={Landing} />
+                <Route exact path="/register" component={Registration} />
+            </div>
+        </Router>
     );
 }
 

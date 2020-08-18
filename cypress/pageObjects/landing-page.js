@@ -1,4 +1,4 @@
-import { isVisible } from "../helper-functions/helper-functions";
+import { isVisible, click } from "../helper-functions/helper-functions";
 
 const header = "#Landing_header";
 const logo = "#Landing_logo";
@@ -10,7 +10,7 @@ function headerIsVisible() {
 }
 
 function checkHeaderText() {
-    cy.get(header).should('have.text', 'Welcome to QuizEngine');
+    cy.get(header).should("have.text", "Welcome to QuizEngine");
 }
 
 function logoIsVisible() {
@@ -22,7 +22,7 @@ function registrationButtonIsVisible() {
 }
 
 function checkRegistrationButtonText() {
- cy.get(registrationButton).should('have.text', 'Register');
+    cy.get(registrationButton).should("have.text", "Register");
 }
 
 function loginButtonIsVisible() {
@@ -30,7 +30,11 @@ function loginButtonIsVisible() {
 }
 
 function checkLoginButtonText() {
- cy.get(loginButton).should('have.text', 'Login');
+    cy.get(loginButton).should("have.text", "Login");
+}
+
+function clickRegistrationButton() {
+    click(registrationButton);
 }
 
 module.exports = {
@@ -40,5 +44,6 @@ module.exports = {
     registrationButtonIsVisible,
     checkRegistrationButtonText,
     loginButtonIsVisible,
-    checkLoginButtonText
-}; 
+    checkLoginButtonText,
+    clickRegistrationButton
+};
