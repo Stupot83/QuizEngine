@@ -94,7 +94,7 @@ function fillConfirmPasswordField() {
 }
 
 function checkRegistrationUrl() {
- cy.url().should('eq', 'http://localhost:3000/register'); 
+    cy.url().should("eq", "http://localhost:3000/register");
 }
 
 module.exports = {

@@ -1,8 +1,7 @@
 import * as landingPage from "../pageObjects/landing-page";
 import * as loginPage from "../pageObjects/login-page";
 
-describe('When the Login page is loaded', () => {
-
+describe("When the Login page is loaded", () => {
     before(() => {
         cy.visit("/");
         landingPage.clickLoginButton();
@@ -16,7 +15,7 @@ describe('When the Login page is loaded', () => {
         loginPage.headerIsVisible();
     });
 
-    it('then the header text is displayed correctly', () => {
+    it("then the header text is displayed correctly", () => {
         loginPage.checkHeaderText();
     });
 
@@ -24,15 +23,15 @@ describe('When the Login page is loaded', () => {
         loginPage.emailHeaderIsVisible();
     });
 
-    it('then the email header text is displayed correctly', () => {
+    it("then the email header text is displayed correctly", () => {
         loginPage.checkEmailHeaderText();
     });
 
-    it('then the password header is visible', () => {
+    it("then the password header is visible", () => {
         loginPage.passwordHeaderIsVisible();
     });
 
-    it('then the password header text is displayed correctly', () => {
+    it("then the password header text is displayed correctly", () => {
         loginPage.checkPasswordHeaderText();
     });
 
@@ -40,7 +39,7 @@ describe('When the Login page is loaded', () => {
         loginPage.checkLoginButton();
     });
 
-    it('then the login button text is displayed correctly', () => {
+    it("then the login button text is displayed correctly", () => {
         loginPage.checkLoginButtonText();
     });
 
@@ -48,7 +47,7 @@ describe('When the Login page is loaded', () => {
         loginPage.redirectMessageIsVisible();
     });
 
-    it('then the redirect message text is displayed correctly', () => {
+    it("then the redirect message text is displayed correctly", () => {
         loginPage.checkRedirectMessageText();
     });
 
@@ -56,12 +55,11 @@ describe('When the Login page is loaded', () => {
         loginPage.registrationLinkIsVisible();
     });
 
-    it('then the registration link text is displayed correctly', () => {
+    it("then the registration link text is displayed correctly", () => {
         loginPage.checkRegistrationLinkText();
     });
 
-    describe('When the Login form is filled in', () => {
-
+    describe("When the Login form is filled in", () => {
         it("then the email field should be populated correctly", () => {
             loginPage.fillEmailField();
         });
@@ -70,5 +68,4 @@ describe('When the Login page is loaded', () => {
             loginPage.fillPasswordField();
         });
     });
-
 });

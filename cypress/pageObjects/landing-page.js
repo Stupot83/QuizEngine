@@ -38,11 +38,11 @@ function clickRegistrationButton() {
 }
 
 function clickLoginButton() {
- click(loginButton);
+    click(loginButton);
 }
 
 function checkLandingUrl() {
- cy.url().should('eq', 'http://localhost:3000/'); 
+    cy.url().should("eq", "http://localhost:3000/");
 }
 
 module.exports = {
