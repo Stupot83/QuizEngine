@@ -1,14 +1,14 @@
 import axios from "axios";
-import authenticationToken from "./authenticationToken";
+import establishAuthToken from "../config/establishAuthToken";
 import jwt_decode from "jwt-decode";
 
 import { RETRIEVE_INVALID_ENTRIES, ESTABLISH_USER, LOADING_USER } from "./types";
 
 // Register a new User
-export const registerNewUser = (userData, storage) => dispatch => {
+export const registerNewUser = (userData, history) => dispatch => {
     axios
-        .post("/register", userData)
-        .then(res => storage.push("/login")) // Redirect to login when registration is successful
+        .post("/api/users/register", userData)
+        .then(res => history.push("/login")) // Redirect to login when registration is successful
         .catch(err =>
             dispatch({
                 type: RETRIEVE_INVALID_ENTRIES,
@@ -20,17 +20,17 @@ export const registerNewUser = (userData, storage) => dispatch => {
 // Login the User and assign the token
 export const loginUser = userData => dispatch => {
     axios
-        .post("/login", userData)
+        .post("/api/users/login", userData)
         .then(res => {
             // Save and set the token in localStorage
-            const { jwt } = res.data;
-            localStorage.setItem("jwtToken", jwt);
+            const { token } = res.data;
+            localStorage.setItem("jwtToken", JSON.stringify(token));
             // Set the token to the Auth header
-            authenticationToken(jwt);
-            // Decode the token to get the data for the Dev
-            const decodedJwt = jwt_decode(jwt);
-            // Set the current Dev
-            dispatch(establishUser(decodedJwt));
+            establishAuthToken(token);
+            // Decode the token to get the data for the User
+            const decoded = jwt_decode(token);
+            // Set the current User
+            dispatch(establishUser(decoded));
         })
         .catch(err =>
             dispatch({
@@ -41,10 +41,10 @@ export const loginUser = userData => dispatch => {
 };
 
 // Establish the logged in User
-export const establishUser = decodedJwt => {
+export const establishUser = decoded => {
     return {
         type: ESTABLISH_USER,
-        payload: decodedJwt
+        payload: decoded
     };
 };
 
@@ -55,12 +55,12 @@ export const loadUser = () => {
     };
 };
 
-// Log the Dev out
+// Log the User out
 export const logoutUser = () => dispatch => {
     // Remove the token from local storage
     localStorage.removeItem("jwtToken");
     // Remove the auth header for future requests
-    authenticationToken(false);
-    // Set the current User to an empty object {} which sets passedAuthentication to false
+    establishAuthToken(false);
+    // Set the current User to an empty object {} which sets isAuthenticated to false
     dispatch(establishUser({}));
 };

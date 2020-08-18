@@ -18,11 +18,11 @@ const UserSchema = new Schema({
         required: true
     },
 
-    role: {
-        type: String,
-        enum: ["Edit", "View", "Restricted"],
-        default: ["Restricted"]
-    },
+    // role: {
+    //     type: String,
+    //     enum: ["Edit", "View", "Restricted"],
+    //     default: ["Restricted"]
+    // },
 
     date_created: {
         type: Date,
@@ -30,6 +30,4 @@ const UserSchema = new Schema({
     }
 });
 
-const User = mongoose.model("user", UserSchema);
-
-module.exports = User;
+module.exports = User = mongoose.model("users", UserSchema);
