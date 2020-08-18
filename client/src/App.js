@@ -1,12 +1,17 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Topnav from "./components/navigation/Topnav";
+import Landing from "./components/Landing";
 
 function App() {
-  return (
-    <div className="App">
-      <h1>QuizEngine Placeholder</h1>
-    </div>
-  );
+    return (
+      <Router>
+      <div className="App">
+              <Topnav />
+              <Route exact path="/" component={Landing} />
+      </div>
+  </Router>
+    );
 }
 
 export default App;
