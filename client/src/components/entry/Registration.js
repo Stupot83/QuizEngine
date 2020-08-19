@@ -170,6 +170,4 @@ const mapStateToProps = state => ({
     invalidEntries: state.invalidEntries
 });
 
-export default connect(mapStateToProps, { registerNewUser })(
-    withRouter(Registration)
-);
+export default connect(mapStateToProps, { registerNewUser })(withRouter(Registration));

@@ -14,11 +14,7 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <Button
-                    onClick={this.onLogoutClick}
-                    variant="contained"
-                    color="primary"
-                >
+                <Button onClick={this.onLogoutClick} variant="contained" color="primary">
                     Logout
                 </Button>
             </div>
