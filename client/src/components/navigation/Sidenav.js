@@ -81,7 +81,7 @@ const Sidenav = props => {
                     edge="start"
                     className={clsx(classes.menuButton, open && classes.hide)}
                 >
-                    <MenuIcon className="Hamburger_icon" fontSize="large" />
+                    <MenuIcon id="hamburger" className="Hamburger_icon" fontSize="large" />
                 </IconButton>
             </Toolbar>
             <Drawer
@@ -95,24 +95,24 @@ const Sidenav = props => {
                 }}
             >
                 <div className={classes.drawerHeader}>
-                    <img className="Logo" src={Logo} alt="Logo" />
+                    <img id="logo" className="Logo" src={Logo} alt="Logo" />
                     <IconButton onClick={handleDrawerClose}>
-                        <ChevronLeftIcon fontSize="large" />
+                        <ChevronLeftIcon id="chevron" fontSize="large" />
                     </IconButton>
                 </div>
                 <Divider />
                 <List>
                     <ListItem button component={Link} to="/home">
                         <ListItemIcon>
-                            <HomeIcon fontSize="large" />
+                            <HomeIcon id="homeIcon" fontSize="large" />
                         </ListItemIcon>
-                        <ListItemText primary="Home" />
+                        <ListItemText id="homeHeader" primary="Home" />
                     </ListItem>
                     <ListItem button onClick={onLogoutClick}>
                         <ListItemIcon>
-                            <ExitToAppIcon fontSize="large" />
+                            <ExitToAppIcon id="signOutIcon" fontSize="large" />
                         </ListItemIcon>
-                        <ListItemText primary="Sign-out" />
+                        <ListItemText id="signOutHeader" primary="Sign-out" />
                     </ListItem>
                     <Divider />
                 </List>
