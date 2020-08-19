@@ -7,14 +7,9 @@ const Quiz = require("../../models/quiz");
 
 // GET api/quizzes - Get all quizzes
 router.get("/", passport.authenticate("jwt", { session: false }), async (req, res) => {
-    let quizzesArr = [];
-
     await Quiz.find({})
         .then(quizzes => {
-            quizzes.map(quiz => {
-                quizzesArr.push(quiz);
-            });
-            res.json(quizzesArr);
+         res.json(quizzes);
         })
         .catch(err => console.log(err));
 });
