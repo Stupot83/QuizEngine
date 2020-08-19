@@ -19,6 +19,13 @@ class Registration extends Component {
         };
     }
 
+    componentDidMount() {
+        // Redirect User to home page if already authenticated
+        if (this.props.auth.isAuthenticated) {
+            this.props.history.push("/home");
+        }
+    }
+
     componentWillReceiveProps(nextProps) {
         if (nextProps.invalidEntries) {
             this.setState({
@@ -163,6 +170,4 @@ const mapStateToProps = state => ({
     invalidEntries: state.invalidEntries
 });
 
-export default connect(mapStateToProps, { registerNewUser })(
-    withRouter(Registration)
-);
+export default connect(mapStateToProps, { registerNewUser })(withRouter(Registration));

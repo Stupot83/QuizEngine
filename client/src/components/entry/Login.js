@@ -17,6 +17,13 @@ class Login extends Component {
         };
     }
 
+    componentDidMount() {
+        // Redirect User to home page if already authenticated
+        if (this.props.auth.isAuthenticated) {
+            this.props.history.push("/home");
+        }
+    }
+
     componentWillReceiveProps(nextProps) {
         if (nextProps.auth.isAuthenticated) {
             this.props.history.push("/home"); // Redirect User to Home Page once logged in
@@ -118,7 +125,7 @@ class Login extends Component {
 Login.propTypes = {
     loginUser: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
-    invalidEntries: PropTypes.object.isRequired,
+    invalidEntries: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({

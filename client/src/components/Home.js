@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { logoutUser } from "../actions/actionsForAuthentication";
 import Button from "@material-ui/core/Button";
@@ -13,11 +14,7 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <Button
-                    onClick={this.onLogoutClick}
-                    variant="contained"
-                    color="primary"
-                >
+                <Button onClick={this.onLogoutClick} variant="contained" color="primary">
                     Logout
                 </Button>
             </div>
@@ -34,4 +31,4 @@ const mapStateToProps = state => ({
     auth: state.auth
 });
 
-export default connect(mapStateToProps, { logoutUser })(Home);
+export default connect(mapStateToProps, { logoutUser })(withRouter(Home));
