@@ -3,11 +3,10 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import quizEngineStore from "./quizEngineStore";
 import jwt_decode from "jwt-decode";
-import Topnav from "./components/navigation/Topnav";
 import Landing from "./components/Landing";
 import Registration from "./components/entry/Registration";
 import Login from "./components/entry/Login";
-import Home from "./components/Home";
+import Home from "./components/QuizInterface";
 import { establishUser, logoutUser } from "./actions/actionsForAuthentication";
 import establishAuthToken from "./config/establishAuthToken";
 import AuthorizedRoute from "./components/authorizedRoutes/AuthorizedRoute";
@@ -15,7 +14,7 @@ import AuthorizedRoute from "./components/authorizedRoutes/AuthorizedRoute";
 // Check for token to keep the User logged in
 if (localStorage.jwtToken) {
     // Set the auth token header auth
-    const token = localStorage.jwtToken;
+    const token = JSON.parse(localStorage.jwtToken);
     establishAuthToken(token);
     // Decode the token and get the User details
     const decoded = jwt_decode(token);

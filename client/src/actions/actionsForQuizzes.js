@@ -89,7 +89,7 @@ export const getQuizzes = () => dispatch => {
 };
 
 // Loading a quiz
-export const loadQuiz = () => {
+export const loadingQuiz = () => {
  return {
   type: LOADING_QUIZ
  };
