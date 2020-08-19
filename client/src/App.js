@@ -36,11 +36,10 @@ function App() {
         <Provider store={quizEngineStore}>
             <Router>
                 <div className="App">
-                    <Topnav />
-                    <Route exact path="/" component={Landing} />
-                    <Route exact path="/register" component={Registration} />
-                    <Route exact path="/login" component={Login} />
                     <Switch>
+                        <Route exact path="/" component={Landing} />
+                        <Route exact path="/register" component={Registration} />
+                        <Route exact path="/login" component={Login} />
                         <AuthorizedRoute exact path="/home" component={Home} />
                     </Switch>
                 </div>

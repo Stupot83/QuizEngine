@@ -19,6 +19,10 @@
                 cursor: pointer;
                 font-weight: bold;
             }
+
+            .MuiTypography-root {
+                padding-left: 0px !important;
+            }
         }
 
         .Topnav_profile {
@@ -34,6 +38,10 @@
                 color: #070707;
                 font-weight: bold;
             }
+
+            .MuiTypography-root {
+                padding-left: 0px !important;
+            }
         }
     }
 
@@ -48,12 +56,12 @@
             }
         }
 
-        .Profile {
-            .Profile_email {
+        .Topnav_profile {
+            .Topnav_icon {
                 display: none;
             }
 
-            .AccountCircle {
+            .Topnav_email {
                 display: none;
             }
         }
