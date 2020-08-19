@@ -18,11 +18,10 @@ const UserSchema = new Schema({
         required: true
     },
 
-    // role: {
-    //     type: String,
-    //     enum: ["Edit", "View", "Restricted"],
-    //     default: ["Restricted"]
-    // },
+    role: {
+        type: String,
+        default: "Restricted"
+    },
 
     date_created: {
         type: Date,

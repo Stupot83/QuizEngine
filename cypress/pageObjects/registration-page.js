@@ -1,4 +1,4 @@
-import { isVisible } from "../helper-functions/helper-functions";
+import { isVisible, click } from "../helper-functions/helper-functions";
 
 const header = "#Registration_header";
 const nameHeader = "#Name_field";
@@ -82,7 +82,7 @@ function fillNameField() {
 }
 
 function fillEmailField() {
-    cy.get(emailInput).type("Edit@Edit.co.uk");
+    cy.get(emailInput).type("edit@edit.co.uk");
 }
 
 function fillPasswordField() {
@@ -95,6 +95,10 @@ function fillConfirmPasswordField() {
 
 function checkRegistrationUrl() {
     cy.url().should("eq", "http://localhost:3000/register");
+}
+
+function submitRegistrationForm() {
+    click(registrationButton);
 }
 
 module.exports = {
@@ -118,5 +122,6 @@ module.exports = {
     fillEmailField,
     fillPasswordField,
     fillConfirmPasswordField,
-    checkRegistrationUrl
+    checkRegistrationUrl,
+    submitRegistrationForm
 };

@@ -91,5 +91,11 @@ describe("When the Registration page is loaded", () => {
         it("then the confirmPassword field should be populated correctly", () => {
             registrationPage.fillConfirmPasswordField();
         });
+
+        describe("then the form is submitted to register the user", () => {
+            it("the form is submitted, and the user is redirected to the login page", () => {
+                registrationPage.submitRegistrationForm();
+            });
+        });
     });
 });

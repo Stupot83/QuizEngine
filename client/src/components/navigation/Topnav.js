@@ -88,7 +88,7 @@ const Topnav = props => {
                         <Typography
                             variant="h6"
                             className="Topnav_title"
-                            id="navTitle"
+                            id="Nav_title"
                             button="true"
                             onClick={redirectToHome}
                         >
@@ -99,7 +99,7 @@ const Topnav = props => {
                         <Button onClick={handleClick} id="accountIcon">
                             <AccountCircle
                                 className="Topnav_icon"
-                                id="accountButton"
+                                id="Profile_icon"
                                 aria-controls="customized-menu"
                                 aria-haspopup="true"
                                 fontSize="large"

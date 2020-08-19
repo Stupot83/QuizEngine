@@ -1,4 +1,4 @@
-import { isVisible } from "../helper-functions/helper-functions";
+import { isVisible, click } from "../helper-functions/helper-functions";
 
 const header = "#Login_header";
 const emailHeader = "#Email_header";
@@ -62,11 +62,15 @@ function checkRegistrationLinkText() {
 }
 
 function fillEmailField() {
-    cy.get(emailInput).type("dave@dave.com");
+    cy.get(emailInput).type("edit@edit.co.uk");
 }
 
 function fillPasswordField() {
-    cy.get(passwordInput).type("davedavedavedave");
+    cy.get(passwordInput).type("editedit");
+}
+
+function submitLoginForm() {
+    click(loginButton);
 }
 
 module.exports = {
@@ -84,5 +88,6 @@ module.exports = {
     checkRegistrationLinkText,
     fillEmailField,
     fillPasswordField,
-    checkLoginUrl
+    checkLoginUrl,
+    submitLoginForm
 };

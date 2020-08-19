@@ -67,5 +67,11 @@ describe("When the Login page is loaded", () => {
         it("then the password field should be populated correctly", () => {
             loginPage.fillPasswordField();
         });
+
+        describe("When the form is submitted to login the user", () => {
+            it("then the form is submitted, and the user is redirected to the home page", () => {
+                loginPage.submitLoginForm();
+            });
+        });
     });
 });
