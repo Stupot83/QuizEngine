@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const users = require("./routes/api/users");
+const quizzes = require("./routes/api/quizzes");
 const app = express();
 
 // Setup body-parser middleware
@@ -35,6 +36,7 @@ require("./authentication/passport")(passport);
     
 // Setup Routes
 app.use("/api/users", users);
+app.use("api/quizzes", quizzes);
 
 const port = process.env.PORT || 7000;
 
