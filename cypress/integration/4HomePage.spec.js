@@ -25,7 +25,11 @@ describe("When the Login form is filled in", () => {
 
 describe("When the user is redirected to the Display page", () => {
     it("then the url is correct", () => {
-        homePage.checkDisplayUrl();
+        homePage.checkHomeUrl();
+    });
+
+    it("then the hamburger icon is visible", () => {
+        homePage.hamburgerIsVisible();
     });
 
     it("then the navTitle is visible", () => {
@@ -46,5 +50,54 @@ describe("When the user is redirected to the Display page", () => {
 
     it("the emailAddress text is displayed correctly", () => {
         homePage.checkEmailAddressText();
+    });
+
+    describe("When the user clicks the hamburger to open the sidenav", () => {
+        before(() => {
+            homePage.clickHamburgerIcon();
+        });
+
+        it("then the url is correct", () => {
+            homePage.checkHomeUrl();
+        });
+
+        it("then the logo is visible", () => {
+            homePage.logoIsVisible();
+        });
+
+        it("then the homeIcon is visible", () => {
+            homePage.homeIconIsVisible();
+        });
+
+        it("the homeHeader text is displayed correctly", () => {
+            homePage.checkHomeHeaderText();
+        });
+
+        it("then the signOutIcon is visible", () => {
+            homePage.signOutIconIsVisible();
+        });
+
+        it("the signOutHeader text is displayed correctly", () => {
+            homePage.checkSignOutHeaderText();
+        });
+    });
+
+    describe("When the user closes the sidenav and opens the topnav menu", () => {
+        before(() => {
+            homePage.clickChevron();
+            homePage.clickProfileIcon();
+        });
+
+        it("then the url is correct", () => {
+            homePage.checkHomeUrl();
+        });
+
+        it("the homeHeader text is displayed correctly", () => {
+            homePage.checkHomeHeaderText();
+        });
+
+        it("the signOutHeader text is displayed correctly", () => {
+            homePage.checkSignOutHeaderText();
+        });
     });
 });
