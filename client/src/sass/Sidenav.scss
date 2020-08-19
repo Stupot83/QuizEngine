@@ -1,0 +1,40 @@
+.Hamburger_icon {
+ color: #070707;
+}
+
+.MuiDrawer-paper {
+ background-color: #fff;
+background-image:
+linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
+linear-gradient(#eee .1em, transparent .1em);
+background-size: 100% 1.2em;
+}
+
+.MuiSvgIcon-fontSizeLarge {
+ color: #070707 !important;
+}
+
+.MuiTypography-root {
+ padding-left: 30px;
+}
+
+.MuiListItemIcon-root {
+ padding-left: 20px;
+ color: #070707 !important;
+}
+
+.MuiTypography-body1 {
+ color: #070707 !important;
+ font-weight: bold !important;
+}
+
+.Logo {
+ text-align: center;
+ width: 80%;
+}
+
+@media (max-width: 600px) {
+ .Hamburger_icon {
+  margin-top: 8px;
+ }
+}

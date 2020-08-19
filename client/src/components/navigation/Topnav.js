@@ -19,7 +19,7 @@ import "../../sass/Topnav.scss";
 
 const StyledMenu = withStyles({
     paper: {
-        border: "1px solid #d3d4d5",
+        border: "1px solid #070707",
         marginTop: "8px"
     }
 })(props => (
@@ -72,8 +72,8 @@ const Topnav = props => {
 
     const redirectToHome = e => {
         if (props.auth.isAuthenticated) {
-            props.history.push("/display");
-            window.location.href = "/display";
+            props.history.push("/home");
+            window.location.href = "/home";
         }
     };
 
@@ -111,6 +111,7 @@ const Topnav = props => {
                             keepMounted
                             open={Boolean(anchorEl)}
                             onClose={handleClose}
+                            className="Dropdown_menu"
                         >
                             <StyledMenuItem button onClick={redirectToHome}>
                                 <ListItemIcon>
