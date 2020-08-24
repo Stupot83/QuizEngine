@@ -1,0 +1,146 @@
+.QuizList_container {
+ flex: 1 1 auto;
+ margin: 4rem;
+ border: 1px solid lightgray;
+ border-radius: 30px !important;
+ background-image: url("../corkboard.png");
+ background-size: 100% 100%;
+
+ .QuizList_header {
+   font-size: 24px;
+   color: ghostwhite;
+   text-align: center;
+   padding: 40px;
+   background-color: transparent;
+   text-decoration: underline;
+ }
+
+ .Create_quiz_button_container {
+   text-align: center;
+   background-color: transparent;
+
+   .Create_quiz_button {
+    min-width: 150px;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: #34D1BF;
+    color: #070707;
+    font-weight: bold;
+   }
+ }
+
+ .Modal_area {
+   display: flex;
+   justify-content: center;
+ }
+
+ .Quizzes_container {
+   padding: 30px;
+   display: flex;
+   flex-wrap: wrap;
+   background-color: transparent;
+
+   .Quiz_card {
+     height: 400px;
+     min-width: 350px;
+     flex-basis: 300px;
+     border-radius: 30px;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     border: 1px solid #EFEFEF;
+     margin: 3rem;
+     text-align: center;
+     color: #070707;
+     background-color: ghostwhite !important;
+
+     .Quiz_header_title {
+      margin-top: 20px;
+     }
+
+     .Quiz_header_category {
+      margin-top: 0px;
+      margin-bottom: 10px;
+     }
+
+     .Quiz_title {
+       text-transform: uppercase;
+       color: #070707;
+       font-size: 18px;
+       height: 10vh;
+       font-weight: bold;
+       height: 100%;
+       padding: 20px !important;
+       white-space: nowrap;
+       overflow: hidden;
+       display: block;
+       text-overflow: ellipsis;
+     }
+
+     .Quiz_category {
+      text-transform: uppercase;
+      color: #070707;
+      font-size: 18px;
+      height: 10vh;
+      font-weight: bold;
+      height: 100%;
+      padding: 20px !important;
+      white-space: nowrap;
+      overflow: hidden;
+      display: block;
+      text-overflow: ellipsis;
+    }
+
+     .Quiz_button_edit {
+      min-width: 150px;
+      margin-left: 30px;
+      margin-right: 30px;
+      padding: 15px;
+      border-radius: 15px;
+      background-color: #3454D1;
+      color: ghostwhite;
+      font-weight: bold;
+     }
+
+     .Quiz_button_view {
+      min-width: 150px;
+      margin-left: 30px;
+      margin-right: 30px;
+      padding: 15px;
+      border-radius: 15px;
+      background-color: #34D1BF;
+      color: #070707;
+      font-weight: bold;
+     }
+   }
+ }
+
+ .No_quizzes_container {
+   padding-bottom: 50px;
+   display: flex;
+   flex-wrap: wrap;
+   background-color: transparent;
+   flex-direction: column;
+
+   .Create_quiz_button {
+    min-width: 150px;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: #34D1BF;
+    color: #070707;
+    font-weight: bold;
+   }
+
+   .Logo_no_quizzes {
+     margin: 40px;
+     border-radius: 20%;
+     border: 10px solid lightgrey;
+     height: 400px;
+     width: 400px;
+   }
+ }
+}

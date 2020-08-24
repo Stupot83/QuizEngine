@@ -102,7 +102,7 @@ const Sidenav = props => {
                 </div>
                 <Divider />
                 <List>
-                    <ListItem button component={Link} to="/home">
+                    <ListItem button component={Link} to="/display">
                         <ListItemIcon>
                             <HomeIcon id="homeIcon" fontSize="large" />
                         </ListItemIcon>

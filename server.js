@@ -36,7 +36,7 @@ require("./authentication/passport")(passport);
     
 // Setup Routes
 app.use("/api/users", users);
-app.use("api/quizzes", quizzes);
+app.use("/api/quizzes", quizzes);
 
 const port = process.env.PORT || 7000;
 

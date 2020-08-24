@@ -69,6 +69,14 @@ function fillPasswordField() {
     cy.get(passwordInput).type("editedit");
 }
 
+function fillEmailFieldEditRole() {
+    cy.get(emailInput).type("dave@dave.com");
+}
+
+function fillPasswordFieldEditRole() {
+    cy.get(passwordInput).type("Corjb2021x");
+}
+
 function submitLoginForm() {
     click(loginButton);
 }
@@ -89,5 +97,7 @@ module.exports = {
     fillEmailField,
     fillPasswordField,
     checkLoginUrl,
-    submitLoginForm
+    submitLoginForm,
+    fillEmailFieldEditRole,
+    fillPasswordFieldEditRole
 };

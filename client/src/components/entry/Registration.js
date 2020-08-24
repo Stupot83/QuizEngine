@@ -22,7 +22,7 @@ class Registration extends Component {
     componentDidMount() {
         // Redirect User to home page if already authenticated
         if (this.props.auth.isAuthenticated) {
-            this.props.history.push("/home");
+            this.props.history.push("/display");
         }
     }
 

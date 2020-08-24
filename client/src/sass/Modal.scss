@@ -1,0 +1,138 @@
+@keyframes fade-in {
+ from {
+   opacity: 0;
+   transform: translateY(5px);
+ }
+
+ to {
+   opacity: 1;
+   transform: translateY(0px);
+ }
+}
+
+.Modal_container {
+ max-width: 600px !important;
+ background: white;
+ border: 1px solid #EFEFEF;
+ border-radius: 30px;
+ animation: fade-in 0.25s;
+ transform: scale(1);
+ padding: 2rem;
+ visibility: visible;
+ position: fixed;
+ top: 21%;
+ height: 500px;
+ z-index: 1000;
+ box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+
+ .Modal_header_container {
+   display: block;
+   padding-bottom: 10px;
+   padding-left: 30px;
+   padding-right: 30px;
+
+   .Modal_icon {
+     float: right;
+     margin-top: 4px;
+
+     &:hover {
+       cursor: pointer;
+     }
+   }
+
+   .Modal_header_create {
+     text-align: center;
+     color: #34D1BF;
+     font-weight: bold;
+   }
+
+   .Modal_header_edit {
+    text-align: center;
+    color: #3454D1;
+    font-weight: bold;
+  }
+ }
+
+ .Modal_detail_container {
+   margin-bottom: 1rem;
+
+
+ .Modal_form_label {
+  width: 100%;
+  padding-right: 2rem;
+  margin-bottom: 0.75rem;
+  margin-top: 0.75rem;
+  font-size: 14px;
+  color: #070707;
+  display: block;
+}
+
+   .Modal_form_input {
+     background-color: ghostwhite;
+     border-bottom: 1px solid #3454D1;
+     height: 40px;
+     width: 100%;
+     line-height: 1.5em;
+     outline: 0;
+     transition: all 0.25s ease 0s;
+     font-size: 16px;
+     padding: 0 1rem;
+
+     &:hover {
+       transition: all 0.25s ease 0s;
+       background-color: #EFEFEF;
+     }
+
+     &:focus {
+       transition: all 0.25s ease 0s;
+       background-color: #EFEFEF;
+     }
+   }
+ }
+
+ .Modal_form_button_box {
+   margin-top: 1.75rem;
+   text-align: center;
+
+   .Modal_form_button_create {
+    min-width: 150px;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: #34D1BF;
+    color: #070707;
+    font-weight: bold;
+   }
+
+   .Modal_form_button_edit {
+    min-width: 150px;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: #3454D1;
+    color: ghostwhite;
+    font-weight: bold;
+   }
+
+   .Modal_form_button_delete {
+    min-width: 150px;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: #D1345B;
+    color: ghostwhite;
+    font-weight: bold;
+   }
+ }
+}
+
+@media (max-width: 600px) {
+ .Modal_container {
+   max-width: 480px !important;
+   top: 15%;
+   height: 625px;
+ }
+}

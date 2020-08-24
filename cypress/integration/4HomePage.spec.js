@@ -23,7 +23,7 @@ describe("When the Login form is filled in", () => {
     });
 });
 
-describe("When the user is redirected to the Display page", () => {
+describe("When the user is redirected to the Home page", () => {
     it("then the url is correct", () => {
         homePage.checkHomeUrl();
     });
@@ -98,6 +98,18 @@ describe("When the user is redirected to the Display page", () => {
 
         it("the signOutHeader text is displayed correctly", () => {
             homePage.checkSignOutHeaderText();
+        });
+    });
+
+    describe("When the user clicks the sign-out option from the hamburger menu", () => {
+        before(() => {
+            cy.go("back");
+            homePage.clickHamburgerIcon();
+            homePage.clickSignOutIcon();
+        });
+
+        it("then the url is correct", () => {
+            landingPage.checkLandingUrl();
         });
     });
 });

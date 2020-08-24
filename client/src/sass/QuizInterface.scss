@@ -1,6 +1,8 @@
 .Interface_container {
  display: flex;
  justify-content: space-between;
+ background-image: url("https://www.transparenttextures.com/patterns/brick-wall.png");
+ min-height: calc(100vh - 64px);
 
  .Interface_content_container {
    display: flex;

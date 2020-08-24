@@ -72,8 +72,8 @@ const Topnav = props => {
 
     const redirectToHome = e => {
         if (props.auth.isAuthenticated) {
-            props.history.push("/home");
-            window.location.href = "/home";
+            props.history.push("/display");
+            window.location.href = "/display";
         }
     };
 

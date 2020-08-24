@@ -10,6 +10,7 @@ import Home from "./components/QuizInterface";
 import { establishUser, logoutUser } from "./actions/actionsForAuthentication";
 import establishAuthToken from "./config/establishAuthToken";
 import AuthorizedRoute from "./components/authorizedRoutes/AuthorizedRoute";
+import "../src/sass/App.scss";
 
 // Check for token to keep the User logged in
 if (localStorage.jwtToken) {
@@ -25,26 +26,28 @@ if (localStorage.jwtToken) {
     if (decoded.exp < currentTime) {
         // Logout the User if token has expired
         quizEngineStore.dispatch(logoutUser());
-        // Redirect the User to login form
-        window.location.href = "./login";
+        // Redirect the User to landing page
+        window.location.href = "./";
     }
 }
 
-function App() {
-    return (
-        <Provider store={quizEngineStore}>
-            <Router>
-                <div className="App">
-                    <Switch>
-                        <Route exact path="/" component={Landing} />
-                        <Route exact path="/register" component={Registration} />
-                        <Route exact path="/login" component={Login} />
-                        <AuthorizedRoute exact path="/home" component={Home} />
-                    </Switch>
-                </div>
-            </Router>
-        </Provider>
-    );
+class App extends Component {
+    render() {
+        return (
+            <Provider store={quizEngineStore}>
+                <Router>
+                    <div className="App">
+                        <Switch>
+                            <Route exact path="/" component={Landing} />
+                            <Route exact path="/register" component={Registration} />
+                            <Route exact path="/login" component={Login} />
+                            <AuthorizedRoute exact path="/display" component={Home} />
+                        </Switch>
+                    </div>
+                </Router>
+            </Provider>
+        );
+    }
 }
 
 export default App;
