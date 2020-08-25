@@ -9,7 +9,7 @@ const Quiz = require("../../models/quiz");
 router.get("/", passport.authenticate("jwt", { session: false }), async (req, res) => {
     await Quiz.find({})
         .then(quizzes => {
-         res.json(quizzes);
+            res.json(quizzes);
         })
         .catch(err => console.log(err));
 });
