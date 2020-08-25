@@ -59,20 +59,20 @@ class QuizList extends Component {
                         {quiz.category}
                     </Typography>
                 </Grid>
-                { userRole === "Edit" &&
-                <Grid item xs={12}>
-                    <Button
-                        id="editQuizButton"
-                        variant="contained"
-                        className="Quiz_button_edit"
-                        size="large"
-                        startIcon={<EditIcon />}
-                        onClick={this.toggleEditModal.bind(this, quiz.title, quiz.category, quiz._id, quiz.creator)}
-                    >
-                        Edit Quiz
-                    </Button>
-                </Grid>
-                }
+                {userRole === "Edit" && (
+                    <Grid item xs={12}>
+                        <Button
+                            id="editQuizButton"
+                            variant="contained"
+                            className="Quiz_button_edit"
+                            size="large"
+                            startIcon={<EditIcon />}
+                            onClick={this.toggleEditModal.bind(this, quiz.title, quiz.category, quiz._id, quiz.creator)}
+                        >
+                            Edit Quiz
+                        </Button>
+                    </Grid>
+                )}
                 <Grid item xs={12}>
                     <Button
                         id="viewQuizButton"
@@ -92,20 +92,20 @@ class QuizList extends Component {
             // When there is one or more Quizzes
             content = (
                 <>
-                { userRole === "Edit" &&
-                    <Grid item xs={12} className="Create_quiz_button_container">
-                        <Button
-                            variant="contained"
-                            size="large"
-                            className="Create_quiz_button"
-                            startIcon={<AddCircleOutlineIcon />}
-                            onClick={this.toggleModal}
-                            id="createQuizButton"
-                        >
-                            Create Quiz
-                        </Button>
-                    </Grid>
-        }
+                    {userRole === "Edit" && (
+                        <Grid item xs={12} className="Create_quiz_button_container">
+                            <Button
+                                variant="contained"
+                                size="large"
+                                className="Create_quiz_button"
+                                startIcon={<AddCircleOutlineIcon />}
+                                onClick={this.toggleModal}
+                                id="createQuizButton"
+                            >
+                                Create Quiz
+                            </Button>
+                        </Grid>
+                    )}
                     <div className="Modal_area">
                         <Modal
                             onClose={this.toggleModal}
@@ -126,28 +126,28 @@ class QuizList extends Component {
             // No Quizzes
             content = (
                 <>
-                { userRole === "Edit" &&
-                    <Grid container alignItems="center" justify="center" className="No_quizzes_container">
-                        <Grid item xs={12}>
-                            <img id="noQuizzesLogo" className="Logo_no_quizzes" src={Logo} alt="Loading" />
+                    {userRole === "Edit" && (
+                        <Grid container alignItems="center" justify="center" className="No_quizzes_container">
+                            <Grid item xs={12}>
+                                <img id="noQuizzesLogo" className="Logo_no_quizzes" src={Logo} alt="Loading" />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <Button
+                                    className="Create_quiz_button"
+                                    variant="contained"
+                                    size="large"
+                                    startIcon={<AddCircleOutlineIcon />}
+                                    onClick={this.toggleModal}
+                                    id="createQuizButton"
+                                >
+                                    Create Quiz
+                                </Button>
+                            </Grid>
+                            <div className="Modal_area">
+                                <Modal onClose={this.toggleModal} modal={this.state.modal} />
+                            </div>
                         </Grid>
-                        <Grid item xs={12}>
-                            <Button
-                                className="Create_quiz_button"
-                                variant="contained"
-                                size="large"
-                                startIcon={<AddCircleOutlineIcon />}
-                                onClick={this.toggleModal}
-                                id="createQuizButton"
-                            >
-                                Create Quiz
-                            </Button>
-                        </Grid>
-                        <div className="Modal_area">
-                            <Modal onClose={this.toggleModal} modal={this.state.modal} />
-                        </div>
-                    </Grid>
-        }
+                    )}
                 </>
             );
         }
