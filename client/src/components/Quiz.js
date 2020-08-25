@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import { getQuiz } from "../actions/actionsForQuizzes";
 import Loading from "./Loading";
 import Modal from "./Modal";
@@ -48,12 +49,16 @@ class Quiz extends Component {
     }
 
     render() {
+
+        const userRole = this.props.auth.user.role;
+
         if (this.props.quiz && !this.props.quiz.quizLoading) {
             const { quiz } = this.props;
 
             return (
                 <Card className="Quiz_content_container">
                     <h1 className="Quiz_content_header">{quiz.title}</h1>
+                    { userRole === "Edit" &&
                     <Grid item xs={12} className="Edit_quiz_button_container">
                         <Button
                             variant="contained"
@@ -64,7 +69,7 @@ class Quiz extends Component {
                             Edit Quiz
                         </Button>
                     </Grid>
-
+        }
                     <div className="Modal_area">
                         <Modal
                             onClose={this.toggleModal}
@@ -87,6 +92,10 @@ class Quiz extends Component {
         );
     }
 }
+
+Quiz.propTypes = {
+    auth: PropTypes.object.isRequired
+};
 
 const mapStateToProps = state => ({
     auth: state.auth,

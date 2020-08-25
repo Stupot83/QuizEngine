@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Modal from "./Modal";
+import PropTypes from "prop-types";
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 import Typography from "@material-ui/core/Typography";
@@ -40,6 +41,7 @@ class QuizList extends Component {
 
     render() {
         const { quizzes } = this.props.quizzes;
+        const userRole = this.props.auth.user.role;
 
         let content;
 
@@ -57,6 +59,7 @@ class QuizList extends Component {
                         {quiz.category}
                     </Typography>
                 </Grid>
+                { userRole === "Edit" &&
                 <Grid item xs={12}>
                     <Button
                         id="editQuizButton"
@@ -69,6 +72,7 @@ class QuizList extends Component {
                         Edit Quiz
                     </Button>
                 </Grid>
+                }
                 <Grid item xs={12}>
                     <Button
                         id="viewQuizButton"
@@ -88,6 +92,7 @@ class QuizList extends Component {
             // When there is one or more Quizzes
             content = (
                 <>
+                { userRole === "Edit" &&
                     <Grid item xs={12} className="Create_quiz_button_container">
                         <Button
                             variant="contained"
@@ -100,6 +105,7 @@ class QuizList extends Component {
                             Create Quiz
                         </Button>
                     </Grid>
+        }
                     <div className="Modal_area">
                         <Modal
                             onClose={this.toggleModal}
@@ -120,6 +126,7 @@ class QuizList extends Component {
             // No Quizzes
             content = (
                 <>
+                { userRole === "Edit" &&
                     <Grid container alignItems="center" justify="center" className="No_quizzes_container">
                         <Grid item xs={12}>
                             <img id="noQuizzesLogo" className="Logo_no_quizzes" src={Logo} alt="Loading" />
@@ -140,6 +147,7 @@ class QuizList extends Component {
                             <Modal onClose={this.toggleModal} modal={this.state.modal} />
                         </div>
                     </Grid>
+        }
                 </>
             );
         }
@@ -155,7 +163,12 @@ class QuizList extends Component {
     }
 }
 
+QuizList.propTypes = {
+    auth: PropTypes.object.isRequired
+};
+
 const mapStateToProps = state => ({
+    auth: state.auth,
     quizzes: state.quizzes
 });
 
