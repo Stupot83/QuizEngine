@@ -3,7 +3,7 @@ const router = express.Router();
 const passport = require("passport");
 
 // Load Quiz schema
-const Quiz = require("../../models/quiz");
+const Quiz = require("../../models/Quiz");
 
 // GET api/quizzes - Get all quizzes
 router.get("/", passport.authenticate("jwt", { session: false }), async (req, res) => {

@@ -5,7 +5,7 @@ const validationForRegistration = require("../../form-validation/registration-va
 const validationForLogin = require("../../form-validation/login-validation");
 const jwt = require("jsonwebtoken");
 const connection = require("../../database/connection");
-const User = require("../../models/user");
+const User = require("../../models/User");
 
 // POST user/register - Register a new User
 router.post("/register", (req, res) => {

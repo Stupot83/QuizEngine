@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Switch, withRouter } from "react-router
 import Loading from "./Loading";
 import QuizList from "./QuizList";
 import Quiz from "./Quiz";
+import Questions from "./Questions";
 import "../sass/QuizInterface.scss";
 import Topnav from "./navigation/Topnav";
 import Sidenav from "./navigation/Sidenav";
@@ -27,6 +28,7 @@ class QuizInterface extends Component {
                 <div className="Interface_content_container">
                     <Switch>
                         <Route exact path="/display" quizzes={quizzes} component={QuizList} />
+                        <Route exact path="/questions" quizzes={quizzes} component={Questions} />
                         <Route exact path="/quizzes/:quiz" component={Quiz} />
                     </Switch>
                 </div>
@@ -37,6 +39,7 @@ class QuizInterface extends Component {
                     <div className="Interface_content_container">
                         <Switch>
                             <Route exact path="/display" quizzes={[]} component={QuizList} />
+                            <Route exact path="/questions" component={Questions} />
                         </Switch>
                     </div>
                 </>
