@@ -31,8 +31,8 @@ router.post("/create", passport.authenticate("jwt", { session: false }), async (
 
     const NEW_QUIZ = await new Quiz({
         creator: CREATOR,
-        name: req.body.quizName,
-        category: req.body.category
+        title: req.body.quizTitle,
+        category: req.body.quizCategory
     });
 
     NEW_QUIZ.save().then(quiz => res.json(quiz));
@@ -42,8 +42,8 @@ router.post("/create", passport.authenticate("jwt", { session: false }), async (
 router.patch("/update", passport.authenticate("jwt", { session: false }), (req, res) => {
     let quizFields = {};
 
-    quizFields.name = req.body.quizName;
-    quizFields.category = req.body.category;
+    quizFields.title = req.body.quizTitle;
+    quizFields.category = req.body.quizCategory;
 
     Quiz.findOneAndUpdate({ _id: req.body.id }, { $set: quizFields }, { new: true })
         .then(quiz => {

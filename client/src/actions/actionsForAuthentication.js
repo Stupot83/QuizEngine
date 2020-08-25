@@ -56,11 +56,13 @@ export const loadUser = () => {
 };
 
 // Log the User out
-export const logoutUser = () => dispatch => {
+export const logoutUser = history => dispatch => {
     // Remove the token from local storage
     localStorage.removeItem("jwtToken");
     // Remove the auth header for future requests
     establishAuthToken(false);
     // Set the current User to an empty object {} which sets isAuthenticated to false
     dispatch(establishUser({}));
+
+    history.push("/display");
 };

@@ -2,15 +2,14 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import Topnav from "../components/navigation/Topnav";
-import Sidenav from "../components/navigation/Sidenav";
+import QuizInterface from "./QuizInterface";
+import "../sass/Home.scss";
 
 class Home extends Component {
     render() {
         return (
-            <div>
-                <Topnav />
-                <Sidenav />
+            <div className="Home">
+                <QuizInterface />
             </div>
         );
     }
