@@ -49,7 +49,6 @@ class Quiz extends Component {
     }
 
     render() {
-
         const userRole = this.props.auth.user.role;
 
         if (this.props.quiz && !this.props.quiz.quizLoading) {
@@ -58,18 +57,24 @@ class Quiz extends Component {
             return (
                 <Card className="Quiz_content_container">
                     <h1 className="Quiz_content_header">{quiz.title}</h1>
-                    { userRole === "Edit" &&
-                    <Grid item xs={12} className="Edit_quiz_button_container">
-                        <Button
-                            variant="contained"
-                            color="secondary"
-                            className="Edit_quiz_button"
-                            onClick={this.toggleEditModal.bind(this, quiz.title, quiz.category, quiz._id, quiz.creator)}
-                        >
-                            Edit Quiz
-                        </Button>
-                    </Grid>
-        }
+                    {userRole === "Edit" && (
+                        <Grid item xs={12} className="Edit_quiz_button_container">
+                            <Button
+                                variant="contained"
+                                color="secondary"
+                                className="Edit_quiz_button"
+                                onClick={this.toggleEditModal.bind(
+                                    this,
+                                    quiz.title,
+                                    quiz.category,
+                                    quiz._id,
+                                    quiz.creator
+                                )}
+                            >
+                                Edit Quiz
+                            </Button>
+                        </Grid>
+                    )}
                     <div className="Modal_area">
                         <Modal
                             onClose={this.toggleModal}
