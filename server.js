@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const passport = require("passport");
 const users = require("./routes/api/users");
 const quizzes = require("./routes/api/quizzes");
+const questions = require("./routes/api/questions");
 const app = express();
 
 // Setup body-parser middleware
@@ -37,6 +38,7 @@ require("./authentication/passport")(passport);
 // Setup Routes
 app.use("/api/users", users);
 app.use("/api/quizzes", quizzes);
+app.use("/api/questions", questions);
 
 const port = process.env.PORT || 7000;
 
