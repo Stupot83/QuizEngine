@@ -62,7 +62,7 @@ function checkRegistrationLinkText() {
 }
 
 function fillEmailField() {
-    cy.get(emailInput).type("edit@edit.co.uk");
+    cy.get(emailInput).type("edit@edit.com");
 }
 
 function fillPasswordField() {
@@ -70,11 +70,11 @@ function fillPasswordField() {
 }
 
 function fillEmailFieldEditRole() {
-    cy.get(emailInput).type("dave@dave.com");
+    cy.get(emailInput).type("edit@edit.com");
 }
 
 function fillPasswordFieldEditRole() {
-    cy.get(passwordInput).type("Corjb2021x");
+    cy.get(passwordInput).type("editedit");
 }
 
 function submitLoginForm() {

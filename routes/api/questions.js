@@ -8,7 +8,7 @@ const Question = require("../../models/Question");
 router.get("/:id", passport.authenticate("jwt", { session: false }), (req, res) => {
     let id = req.params.id;
 
-    Question.find({ question: id }).then(questions => res.json(questions));
+    Question.find({ quiz: id }).then(questions => res.json(questions));
 });
 
 // Create a new Question
@@ -16,8 +16,8 @@ router.post("/create", passport.authenticate("jwt", { session: false }), (req, r
     const NEW_QUESTION = new Question({
         quiz: req.body.quiz,
         questionTitle: req.body.questionTitle,
-        // potentialAnswers: req.body.potentialAnswers,
-        // questionCorrectAnswer: req.body.questionCorrectAnswer
+        potentialAnswers: req.body.potentialAnswers,
+        correctAnswer: req.body.correctAnswer
     });
 
     NEW_QUESTION.save()
@@ -37,8 +37,8 @@ router.patch("/update", passport.authenticate("jwt", { session: false }), (req, 
     let questionFields = {};
 
     questionFields.questionTitle = req.body.questionTitle;
-    // questionFields.potentialAnswers = req.body.potentialAnswers;
-    // questionFields.questionCorrectAnswer = req.body.questionCorrectAnswer;
+    questionFields.potentialAnswers = req.body.potentialAnswers;
+    questionFields.correctAnswer = req.body.correctAnswer;
 
     Question.findOneAndUpdate({ _id: req.body.id }, { $set: questionFields }, { new: true })
         .then(question => {

@@ -12,18 +12,17 @@ const QuestionSchema = new Schema({
     type: String,
     required: true
   },
-  // potentialAnswers: [
-  //  {
-  //    answer: {
-  //      type: String,
-  //      validate: v => Array.isArray(v) && (v.length > 2 && v.length < 6)
-  //    }
-  //  }
-  // ],
-   // correctAnswer: {
-   //  type: String,
-   //  required: true
-   // }
+  potentialAnswers: [
+   {
+     answer: {
+       type: String
+   }
+  }
+  ],
+   correctAnswer: {
+    type: String,
+    required: true
+   }
 });
 
 module.exports = Question = mongoose.model("questions", QuestionSchema);

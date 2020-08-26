@@ -10,6 +10,7 @@ import Questions from "./Questions";
 import "../sass/QuizInterface.scss";
 import Topnav from "./navigation/Topnav";
 import Sidenav from "./navigation/Sidenav";
+import NotAuthorized from "./NotAuthorized";
 
 class QuizInterface extends Component {
     componentDidMount() {
@@ -30,6 +31,7 @@ class QuizInterface extends Component {
                         <Route exact path="/display" quizzes={quizzes} component={QuizList} />
                         <Route exact path="/questions" quizzes={quizzes} component={Questions} />
                         <Route exact path="/quizzes/:quiz" component={Quiz} />
+                        <Route component={NotAuthorized} />
                     </Switch>
                 </div>
             );
@@ -40,6 +42,7 @@ class QuizInterface extends Component {
                         <Switch>
                             <Route exact path="/display" quizzes={[]} component={QuizList} />
                             <Route exact path="/questions" component={Questions} />
+                            <Route component={NotAuthorized} />
                         </Switch>
                     </div>
                 </>

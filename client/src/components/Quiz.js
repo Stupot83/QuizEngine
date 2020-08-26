@@ -8,6 +8,10 @@ import Modal from "./Modal";
 import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
 import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
+import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import EditIcon from "@material-ui/icons/Edit";
 import "../sass/QuizList.scss";
 import "../sass/Quiz.scss";
 
@@ -23,6 +27,8 @@ class Quiz extends Component {
         question: false,
         questions: [],
         questionTitle: "",
+        potentialAnswers: [],
+        correctAnswer: "",
         questionId: ""
     };
 
@@ -53,11 +59,13 @@ class Quiz extends Component {
         });
     };
 
-    toggleEditQuestionModal = (questionTitle, id, e) => {
+    toggleEditQuestionModal = (questionTitle, potentialAnswers, correctAnswer, id, e) => {
         this.setState({
             modal: !this.state.modal,
             editQuestion: !this.state.editQuestion,
             questionTitle: questionTitle,
+            potentialAnswers: potentialAnswers,
+            correctAnswer: correctAnswer,
             questionId: id
         });
     };
@@ -74,12 +82,12 @@ class Quiz extends Component {
         }
     }
 
-    onChange = async (e) => {
+    onChange = async e => {
         await this.setState({ questions: this.props.questions.questions });
 
         let questions = await [...this.state.questions];
 
-        questions[e.target.id].name = await e.target.value;
+        questions[e.target.id].questionTitle = await e.target.value;
 
         await this.setState({ questions });
     };
@@ -95,58 +103,84 @@ class Quiz extends Component {
         }
     };
 
-
     render() {
-        // const userRole = this.props.auth.user.role
+        const userRole = this.props.auth.user.role;
         const { questions } = this.props.questions;
-        console.log({questions});
+        const answerLabels = ["A:", "B:", "C:", "D:", "E:"];
 
         let questionsList = questions.map((question, index) => (
-            <Grid item xs={12} className="Quiz_details" key={question._id}>
-                <Grid
-                    item
-                    xs={6}
-                    onClick={this.toggleEditQuestionModal.bind(
-                        this,
-                        question.questionTitle,
-                        question._id
-                    )}
-                    id={index}
-                    name="question"
-                    className="Quiz_description"
-                >
-                    {question.questionTitle}
+            <Grid item xs={12} className="Question_details" key={question._id}>
+                <Grid item xs={12} id="newQuestionTitleHeader" className="Question_header_box">
+                Title: 
+                    <Typography className="Question_title">
+                    <li id="newQuestionTitle">{question.questionTitle}</li>
+                    </Typography>
                 </Grid>
+                <Grid item xs={12} className="Question_answer_container">
+                <Grid item xs={8} id="answerOptionsHeader" className="Question_header_box">
+                    Answer Options:
+                    <Typography id="actualQuestionTitle" className="Question_answers">
+                    {question.potentialAnswers.map((it, idx) => <li>{answerLabels[idx]} {it.answer}</li>)}
+                    </Typography>
+                </Grid>
+                {userRole === "Edit" && (
+                <Grid item xs={4} className="Question_header_box">
+                        <Button
+                            id="editQuestionButton"
+                            variant="contained"
+                            className="Question_button_edit"
+                            size="large"
+                            startIcon={<EditIcon />}
+                            onClick={this.toggleEditQuestionModal.bind(this, question.questionTitle, question.potentialAnswers, question.correctAnswer, question._id)}
+                        >
+                            Edit Question
+                        </Button>
+                    </Grid>
+                )}
+                    </Grid>
+                    {userRole === "Edit" && (
+                <Grid item xs={12} id="newCorrectAnswerHeader" className="Question_header_box">
+                    Correct Answer:
+                    <Typography id="newCorrectAnswer" className="Question_correct_answer">
+                        <li>{question.correctAnswer}</li>
+                    </Typography>
+                </Grid>
+                    )}
             </Grid>
         ));
 
-        if (this.props.quiz &&
-            !this.props.quizzes.quizLoading &&
-            !this.props.questions.questionsLoading)
-            {
+        if (this.props.quiz && !this.props.quizzes.quizLoading && !this.props.questions.questionsLoading) {
             const { quiz } = this.props;
 
             return (
+                <Card className="Quiz_background_container">
                 <Card className="Quiz_content_container">
-                    <Grid item xs={12} className="Quiz_content_header_container">
-                        <Grid item xs={6}>
-                            <h1 className="Quiz_content_header">{quiz.title}</h1>
+                    <Grid item xs={12} className="Quiz_content_title_container">
+                        <Grid item xs={8} className="Quiz_content_title_box">
+                            <h1 id="quizTitleHeader" className="Quiz_content_title_header">Title: </h1>
+                            <h1 id="quizTitle" className="Quiz_content_title">{quiz.title}</h1>
                         </Grid>
-                        <Grid item xs={6} className="Quiz_content_button_container">
-                            <Button variant="contained"
+                        <Grid item xs={4} className="Quiz_content_button_container">
+                            <Button
+                                variant="contained"
                                 color="secondary"
                                 className="Go_back_button"
+                                id="goBackButton"
+                                size="large"
+                                startIcon={<ExitToAppIcon />}
                                 onClick={this.redirectToHome}
                             >
                                 Go Back
                             </Button>
                         </Grid>
                     </Grid>
-                    <Grid container
-                        spacing={0}
-                        direction="column"
-                        alignItems="center"
-                        justify="center">
+                    <Grid item xs={12} className="Quiz_content_category_container">
+                        <Grid item xs={12} className="Quiz_content_category_box">
+                            <h1 id="quizCategoryHeader" className="Quiz_content_category_header">Category: </h1>
+                            <h1 id="quizCategory" className="Quiz_content_category">{quiz.category}</h1>
+                        </Grid>
+                    </Grid>
+                    <Grid container spacing={0} direction="column" alignItems="center" justify="center">
                         <Modal
                             onClose={this.toggleModal}
                             modal={this.state.modal}
@@ -158,23 +192,35 @@ class Quiz extends Component {
                             question={this.state.question}
                             editQuestion={this.state.editQuestion}
                             questionTitle={this.state.questionTitle}
+                            potentialAnswers={this.state.potentialAnswers}
+                            correctAnswer={this.state.correctAnswer}
                             questionId={this.state.questionId}
                         />
                     </Grid>
                     <Grid container className="Questions_container">
+                    {userRole === "Edit" && (
                         <Grid item xs={12} className="Create_question_button_container">
                             <Button
                                 variant="contained"
                                 color="primary"
                                 className="Create_question_button"
+                                size="large"
+                                id="createQuestionButton"
+                                startIcon={<AddCircleOutlineIcon />}
                                 onClick={this.toggleQuestionModal}
                             >
                                 Create Question
                             </Button>
                         </Grid>
-                        Why is this not fucking working
-                        <Grid item xs={12} className="Questionslist_container">Questions should be here{questionsList}</Grid>
+                    )}
+                        <Grid item xs={12} id="questionsHeader" className="Questionslist_header">
+                            Questions
+                        </Grid>
+                        <Grid item xs={12} className="Questionslist_container">
+                            {questionsList}
+                        </Grid>
                     </Grid>
+                </Card>
                 </Card>
             );
         }
