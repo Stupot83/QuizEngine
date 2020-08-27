@@ -17,7 +17,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import HomeIcon from "@material-ui/icons/Home";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-import DescriptionIcon from '@material-ui/icons/Description';
+import DescriptionIcon from "@material-ui/icons/Description";
 import Logo from "../../../src/Logo.png";
 import "../../sass/Sidenav.scss";
 
@@ -85,7 +85,11 @@ const Sidenav = props => {
 
     let quizData = quizzes.sort().map(quiz => (
         <List className="Hamburger_quizzes_list" key={quiz._id}>
-            <ul><li><Link to={`/quizzes/${quiz._id}`}>{quiz.title}</Link></li></ul>
+            <ul>
+                <li>
+                    <Link to={`/quizzes/${quiz._id}`}>{quiz.title}</Link>
+                </li>
+            </ul>
         </List>
     ));
 
@@ -146,7 +150,7 @@ const Sidenav = props => {
                 </List>
                 <Divider classes={{ root: classes.dividerColor }} />
             </Drawer>
-        </div >
+        </div>
     );
 };
 
