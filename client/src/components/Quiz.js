@@ -111,41 +111,59 @@ class Quiz extends Component {
         let questionsList = questions.map((question, index) => (
             <Grid item xs={12} className="Question_details" key={question._id}>
                 <Grid item xs={12} id="newQuestionTitleHeader" className="Question_header_box">
-                Title: 
+                    Title:
                     <Typography className="Question_title">
-                    <li id="newQuestionTitle">{question.questionTitle}</li>
+                        <li id="newQuestionTitle">{question.questionTitle}</li>
                     </Typography>
                 </Grid>
                 <Grid item xs={12} className="Question_answer_container">
-                <Grid item xs={8} id="answerOptionsHeader" className="Question_header_box">
-                    Answer Options:
-                    <Typography id="actualQuestionTitle" className="Question_answers">
-                    {question.potentialAnswers.map((it, idx) => <li>{answerLabels[idx]} {it.answer}</li>)}
-                    </Typography>
-                </Grid>
-                {userRole === "Edit" && (
-                <Grid item xs={4} className="Question_header_box">
-                        <Button
-                            id="editQuestionButton"
-                            variant="contained"
-                            className="Question_button_edit"
-                            size="large"
-                            startIcon={<EditIcon />}
-                            onClick={this.toggleEditQuestionModal.bind(this, question.questionTitle, question.potentialAnswers, question.correctAnswer, question._id)}
-                        >
-                            Edit Question
-                        </Button>
-                    </Grid>
-                )}
+                    <Grid item xs={8} id="answerOptionsHeader" className="Question_header_box">
+                        Answer Options:
+                        <Typography id="actualQuestionTitle" className="Question_answers">
+                            {question.potentialAnswers.map((it, idx) => (
+                                <li>
+                                    {answerLabels[idx]} {it.answer}
+                                </li>
+                            ))}
+                        </Typography>
                     </Grid>
                     {userRole === "Edit" && (
-                <Grid item xs={12} id="newCorrectAnswerHeader" className="Question_header_box">
-                    Correct Answer:
-                    <Typography id="newCorrectAnswer" className="Question_correct_answer">
-                        <li>{question.correctAnswer}</li>
-                    </Typography>
-                </Grid>
+                        <Grid item xs={4} className="Question_header_box">
+                            <Button
+                                id="editQuestionButton"
+                                variant="contained"
+                                className="Question_button_edit"
+                                size="large"
+                                startIcon={<EditIcon />}
+                                onClick={this.toggleEditQuestionModal.bind(
+                                    this,
+                                    question.questionTitle,
+                                    question.potentialAnswers,
+                                    question.correctAnswer,
+                                    question._id
+                                )}
+                            >
+                                Edit Question
+                            </Button>
+                        </Grid>
                     )}
+                </Grid>
+                {userRole === "Edit" && (
+                    <Grid item xs={12} id="newCorrectAnswerHeader" className="Question_header_box">
+                        Correct Answer:
+                        <Typography id="newCorrectAnswer" className="Question_correct_answer">
+                            <li>{question.correctAnswer}</li>
+                        </Typography>
+                    </Grid>
+                )}
+                {userRole === "View" && (
+                    <Grid item xs={12} id="newCorrectAnswerHeader" className="Question_header_box">
+                        Correct Answer:
+                        <Typography id="newCorrectAnswer" className="Question_correct_answer">
+                            <li>{question.correctAnswer}</li>
+                        </Typography>
+                    </Grid>
+                )}
             </Grid>
         ));
 
@@ -154,73 +172,81 @@ class Quiz extends Component {
 
             return (
                 <Card className="Quiz_background_container">
-                <Card className="Quiz_content_container">
-                    <Grid item xs={12} className="Quiz_content_title_container">
-                        <Grid item xs={8} className="Quiz_content_title_box">
-                            <h1 id="quizTitleHeader" className="Quiz_content_title_header">Title: </h1>
-                            <h1 id="quizTitle" className="Quiz_content_title">{quiz.title}</h1>
+                    <Card className="Quiz_content_container">
+                        <Grid item xs={12} className="Quiz_content_title_container">
+                            <Grid item xs={8} className="Quiz_content_title_box">
+                                <h1 id="quizTitleHeader" className="Quiz_content_title_header">
+                                    Title:{" "}
+                                </h1>
+                                <h1 id="quizTitle" className="Quiz_content_title">
+                                    {quiz.title}
+                                </h1>
+                            </Grid>
+                            <Grid item xs={4} className="Quiz_content_button_container">
+                                <Button
+                                    variant="contained"
+                                    color="secondary"
+                                    className="Go_back_button"
+                                    id="goBackButton"
+                                    size="large"
+                                    startIcon={<ExitToAppIcon />}
+                                    onClick={this.redirectToHome}
+                                >
+                                    Go Back
+                                </Button>
+                            </Grid>
                         </Grid>
-                        <Grid item xs={4} className="Quiz_content_button_container">
-                            <Button
-                                variant="contained"
-                                color="secondary"
-                                className="Go_back_button"
-                                id="goBackButton"
-                                size="large"
-                                startIcon={<ExitToAppIcon />}
-                                onClick={this.redirectToHome}
-                            >
-                                Go Back
-                            </Button>
+                        <Grid item xs={12} className="Quiz_content_category_container">
+                            <Grid item xs={12} className="Quiz_content_category_box">
+                                <h1 id="quizCategoryHeader" className="Quiz_content_category_header">
+                                    Category:{" "}
+                                </h1>
+                                <h1 id="quizCategory" className="Quiz_content_category">
+                                    {quiz.category}
+                                </h1>
+                            </Grid>
                         </Grid>
-                    </Grid>
-                    <Grid item xs={12} className="Quiz_content_category_container">
-                        <Grid item xs={12} className="Quiz_content_category_box">
-                            <h1 id="quizCategoryHeader" className="Quiz_content_category_header">Category: </h1>
-                            <h1 id="quizCategory" className="Quiz_content_category">{quiz.category}</h1>
+                        <Grid container spacing={0} direction="column" alignItems="center" justify="center">
+                            <Modal
+                                onClose={this.toggleModal}
+                                modal={this.state.modal}
+                                edit={this.state.edit}
+                                title={this.state.title}
+                                category={this.state.category}
+                                id={this.state.id}
+                                creator={this.state.creator}
+                                question={this.state.question}
+                                editQuestion={this.state.editQuestion}
+                                questionTitle={this.state.questionTitle}
+                                potentialAnswers={this.state.potentialAnswers}
+                                correctAnswer={this.state.correctAnswer}
+                                questionId={this.state.questionId}
+                            />
                         </Grid>
-                    </Grid>
-                    <Grid container spacing={0} direction="column" alignItems="center" justify="center">
-                        <Modal
-                            onClose={this.toggleModal}
-                            modal={this.state.modal}
-                            edit={this.state.edit}
-                            title={this.state.title}
-                            category={this.state.category}
-                            id={this.state.id}
-                            creator={this.state.creator}
-                            question={this.state.question}
-                            editQuestion={this.state.editQuestion}
-                            questionTitle={this.state.questionTitle}
-                            potentialAnswers={this.state.potentialAnswers}
-                            correctAnswer={this.state.correctAnswer}
-                            questionId={this.state.questionId}
-                        />
-                    </Grid>
-                    <Grid container className="Questions_container">
-                    {userRole === "Edit" && (
-                        <Grid item xs={12} className="Create_question_button_container">
-                            <Button
-                                variant="contained"
-                                color="primary"
-                                className="Create_question_button"
-                                size="large"
-                                id="createQuestionButton"
-                                startIcon={<AddCircleOutlineIcon />}
-                                onClick={this.toggleQuestionModal}
-                            >
-                                Create Question
-                            </Button>
+                        <Grid container className="Questions_container">
+                            {userRole === "Edit" && (
+                                <Grid item xs={12} className="Create_question_button_container">
+                                    <Button
+                                        variant="contained"
+                                        color="primary"
+                                        className="Create_question_button"
+                                        size="large"
+                                        id="createQuestionButton"
+                                        startIcon={<AddCircleOutlineIcon />}
+                                        onClick={this.toggleQuestionModal}
+                                    >
+                                        Create Question
+                                    </Button>
+                                </Grid>
+                            )}
+                            <Grid item xs={12} id="questionsHeader" className="Questionslist_header">
+                                Questions
+                            </Grid>
+                            <Grid item xs={12} className="Questionslist_container">
+                                {questionsList}
+                            </Grid>
                         </Grid>
-                    )}
-                        <Grid item xs={12} id="questionsHeader" className="Questionslist_header">
-                            Questions
-                        </Grid>
-                        <Grid item xs={12} className="Questionslist_container">
-                            {questionsList}
-                        </Grid>
-                    </Grid>
-                </Card>
+                    </Card>
                 </Card>
             );
         }

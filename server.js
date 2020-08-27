@@ -28,13 +28,12 @@ mongoose
     .then(() => console.log("😃 Connection to the QuizEngine Database has been successful! 😃"))
     .catch(() => console.log("🤮 Connection to the QuizEngine Database has failed please try again 🤮"));
 
-
 // Configure Passport
 app.use(passport.initialize());
 
 // Configure Passport
 require("./authentication/passport")(passport);
-    
+
 // Setup Routes
 app.use("/api/users", users);
 app.use("/api/quizzes", quizzes);
@@ -42,6 +41,4 @@ app.use("/api/questions", questions);
 
 const port = process.env.PORT || 7000;
 
-app.listen(port, () =>
-    console.log(`😎 QuizEngine Server Active and Running on Port ${port}! 😎`)
-);
+app.listen(port, () => console.log(`😎 QuizEngine Server Active and Running on Port ${port}! 😎`));
