@@ -143,9 +143,16 @@ class QuizList extends Component {
                                     Create Quiz
                                 </Button>
                             </Grid>
-                            <div className="Modal_area">
+                            <Grid
+                                container
+                                spacing={0}
+                                direction="column"
+                                alignItems="center"
+                                justify="center"
+                                className="Modal_area"
+                            >
                                 <Modal onClose={this.toggleModal} modal={this.state.modal} />
-                            </div>
+                            </Grid>
                         </Grid>
                     )}
                 </>

@@ -15,10 +15,9 @@ const QuestionSchema = new Schema({
   potentialAnswers: [
    {
      answer: {
-       type: String,
-       validate: v => Array.isArray(v) && (v.length > 2 && v.length < 6)
-     }
+       type: String
    }
+  }
   ],
    correctAnswer: {
     type: String,

@@ -10,6 +10,7 @@ import Home from "./components/QuizInterface";
 import { establishUser, logoutUser } from "./actions/actionsForAuthentication";
 import establishAuthToken from "./config/establishAuthToken";
 import AuthorizedRoute from "./components/authorizedRoutes/AuthorizedRoute";
+import NotAuthorized from "./components/NotAuthorized";
 import "../src/sass/App.scss";
 
 // Check for token to keep the User logged in
@@ -42,6 +43,7 @@ class App extends Component {
                             <Route exact path="/register" component={Registration} />
                             <Route exact path="/login" component={Login} />
                             <AuthorizedRoute exact path="/display" component={Home} />
+                            <Route component={localStorage.jwtToken ? Home : NotAuthorized} />
                         </Switch>
                     </div>
                 </Router>

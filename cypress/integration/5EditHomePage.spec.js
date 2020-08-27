@@ -85,7 +85,7 @@ describe("When the user is redirected to the Home page", () => {
             homePage.checkQuizCategoryFieldText();
         });
 
-        describe("When the user fills in the Create Quiz Popup", () => {
+        describe("When the user fills in the Create Quiz Modal", () => {
             it("then the quiz title field is filled in correctly", () => {
                 homePage.fillQuizTitleField();
             });

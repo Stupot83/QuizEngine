@@ -219,6 +219,10 @@ function checkNoQuizzesLogoIsVisible() {
     isVisible(noQuizzesLogo);
 }
 
+function clickViewQuizButton() {
+    click(viewQuizButton);
+}
+
 module.exports = {
     checkHomeUrl,
     navTitleIsVisible,
@@ -267,5 +271,6 @@ module.exports = {
     checkQuizTitleChangedText,
     checkQuizCategoryChangedText,
     clickModalDeleteQuizButton,
-    checkNoQuizzesLogoIsVisible
+    checkNoQuizzesLogoIsVisible,
+    clickViewQuizButton
 };

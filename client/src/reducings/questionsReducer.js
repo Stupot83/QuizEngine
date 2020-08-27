@@ -1,16 +1,16 @@
 import { CREATE_QUESTION, UPDATE_QUESTION, DELETE_QUESTION, GET_QUESTIONS, LOADING_QUESTIONS } from "../actions/types";
 
-const initialState = {
+const startingState = {
     questions: [],
     questionsLoading: false
 };
 
-export default function (state = initialState, action) {
+export default function (state = startingState, action) {
     switch (action.type) {
         case CREATE_QUESTION:
             return {
                 ...state,
-                questions: [action.payload, ...state.todos]
+                questions: [action.payload, ...state.questions]
             };
         case GET_QUESTIONS:
             return {
