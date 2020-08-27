@@ -28,7 +28,7 @@ if (localStorage.jwtToken) {
         // Logout the User if token has expired
         quizEngineStore.dispatch(logoutUser());
         // Redirect the User to landing page
-        window.location.href = "./";
+        window.location.href = "/";
     }
 }
 
