@@ -2,6 +2,11 @@
     color: #070707;
 }
 
+.Hamburger_quizzes_list a {
+    padding-left: 55px;
+    color: #070707 !important;
+}
+
 .MuiDrawer-paper {
     background-color: #fff;
     background-image: linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
@@ -18,7 +23,6 @@
 }
 
 .MuiListItemIcon-root {
-    padding-left: 20px;
     color: #070707 !important;
 }
 

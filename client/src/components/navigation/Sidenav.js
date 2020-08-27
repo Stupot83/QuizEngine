@@ -17,6 +17,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import HomeIcon from "@material-ui/icons/Home";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import DescriptionIcon from '@material-ui/icons/Description';
 import Logo from "../../../src/Logo.png";
 import "../../sass/Sidenav.scss";
 
@@ -49,6 +50,9 @@ const useStyles = makeStyles(theme => ({
         padding: theme.spacing(0, 1),
         ...theme.mixins.toolbar,
         justifyContent: "flex-end"
+    },
+    dividerColor: {
+        height: "10px"
     }
 }));
 
@@ -69,6 +73,21 @@ const Sidenav = props => {
         props.logoutUser(props.history);
         window.location.href = "/";
     };
+
+    const redirectToHome = e => {
+        if (props.auth.isAuthenticated) {
+            props.history.push("/display");
+            window.location.href = "/display";
+        }
+    };
+
+    const { quizzes } = props.quizzes;
+
+    let quizData = quizzes.sort().map(quiz => (
+        <List className="Hamburger_quizzes_list" key={quiz._id}>
+            <ul><li><Link to={`/quizzes/${quiz._id}`}>{quiz.title}</Link></li></ul>
+        </List>
+    ));
 
     return (
         <div className={classes.root}>
@@ -100,9 +119,9 @@ const Sidenav = props => {
                         <ChevronLeftIcon id="chevron" fontSize="large" />
                     </IconButton>
                 </div>
-                <Divider />
+                <Divider classes={{ root: classes.dividerColor }} />
                 <List>
-                    <ListItem button component={Link} to="/display">
+                    <ListItem button onClick={redirectToHome}>
                         <ListItemIcon>
                             <HomeIcon id="homeIcon" fontSize="large" />
                         </ListItemIcon>
@@ -114,15 +133,26 @@ const Sidenav = props => {
                         </ListItemIcon>
                         <ListItemText id="signOutHeader" primary="Sign-out" />
                     </ListItem>
-                    <Divider />
+                    <Divider classes={{ root: classes.dividerColor }} />
+                    <ListItem>
+                        <ListItemIcon>
+                            <DescriptionIcon className="Hamburger_icon" fontSize="large" />
+                        </ListItemIcon>
+                        <ListItemText primary="Quizzes" />
+                    </ListItem>
+                    <ListItem>
+                        <ListItemText>{quizData}</ListItemText>
+                    </ListItem>
                 </List>
+                <Divider classes={{ root: classes.dividerColor }} />
             </Drawer>
-        </div>
+        </div >
     );
 };
 
 const mapStateToProps = state => ({
-    auth: state.auth
+    auth: state.auth,
+    quizzes: state.quizzes
 });
 
 export default connect(mapStateToProps, { logoutUser })(withRouter(Sidenav));
