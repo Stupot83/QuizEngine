@@ -1,6 +1,6 @@
 # QuizEngine
 
-Quiz Management Tool for education establishment and training poviders. 
+Quiz Management Tool for education establishment and training poviders.
 
 Users are able dependent on role to view, create, update or delete quizzes and their associated questions with potential answers and correct answer for each.
 
