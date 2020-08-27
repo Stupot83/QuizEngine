@@ -132,69 +132,69 @@
     margin-top: 2.75rem !important;
     height: 175px;
     overflow-y: scroll;
-    border-bottom: 1px solid #EFEFEF;
+    border-bottom: 1px solid #efefef;
 
     .Modal_form_answers_details {
-      display: flex;
-      justify-content: space-between;
+        display: flex;
+        justify-content: space-between;
 
-      .Modal_form_answers_label {
-        width: 100%;
-        padding-right: 2rem;
-        margin-bottom: 0.75rem;
-        margin-top: 0.75rem;
-        font-size: 14px;
-        color: #070707;
-        display: block;
+        .Modal_form_answers_label {
+            width: 100%;
+            padding-right: 2rem;
+            margin-bottom: 0.75rem;
+            margin-top: 0.75rem;
+            font-size: 14px;
+            color: #070707;
+            display: block;
 
-        .Modal_form_answers_input {
-          background-color: white;
-          border-bottom: 1px solid #3454d1;
-          height: 40px;
-          width: 100%;
-          line-height: 1.5em;
-          outline: 0;
-          transition: all 0.25s ease 0s;
-          font-size: 16px;
-          padding: 0 1rem;
+            .Modal_form_answers_input {
+                background-color: white;
+                border-bottom: 1px solid #3454d1;
+                height: 40px;
+                width: 100%;
+                line-height: 1.5em;
+                outline: 0;
+                transition: all 0.25s ease 0s;
+                font-size: 16px;
+                padding: 0 1rem;
 
-          &:hover {
-            transition: all 0.25s ease 0s;
-            background-color: #EFEFEF;
-          }
+                &:hover {
+                    transition: all 0.25s ease 0s;
+                    background-color: #efefef;
+                }
 
-          &:focus {
-            transition: all 0.25s ease 0s;
-            background-color: #EFEFEF;
-          }
+                &:focus {
+                    transition: all 0.25s ease 0s;
+                    background-color: #efefef;
+                }
+            }
         }
-      }
 
-      .Modal_form_answers_remove {
-        align-items: center;
-        margin-left: 1rem;
-        font-size: 0.5rem;
-        margin-top: 0.75rem;
-        height: 0.5rem;
-        padding: 0.75rem;
-        border-color: #d1345b !important;
-        border-radius: 30px !important;
-        color: #070707 !important;
+        .Modal_form_answers_remove {
+            align-items: center;
+            margin-left: 1rem;
+            font-size: 0.5rem;
+            margin-top: 0.75rem;
+            height: 0.5rem;
+            padding: 0.75rem;
+            border-color: #d1345b !important;
+            border-radius: 30px !important;
+            color: #070707 !important;
 
-        &:hover {
-            transition: all 0.25s ease 0s;
-            background-color: #EFEFEF;
-          }
+            &:hover {
+                transition: all 0.25s ease 0s;
+                background-color: #efefef;
+            }
 
-          &:focus {
-            transition: all 0.25s ease 0s;
-            background-color: #EFEFEF;
-          }
-      }
+            &:focus {
+                transition: all 0.25s ease 0s;
+                background-color: #efefef;
+            }
+        }
     }
-  }
+}
 
-  .Modal_form_answers_button {
+.Modal_form_answers_button {
     margin-top: 1.75rem;
     min-width: 115px;
     text-align: center;
@@ -204,14 +204,14 @@
 
     &:hover {
         transition: all 0.25s ease 0s;
-        background-color: #EFEFEF;
-      }
+        background-color: #efefef;
+    }
 
-      &:focus {
+    &:focus {
         transition: all 0.25s ease 0s;
-        background-color: #EFEFEF;
-      }
-  }
+        background-color: #efefef;
+    }
+}
 
 @media (max-width: 600px) {
     .Modal_container {

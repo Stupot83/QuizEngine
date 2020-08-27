@@ -156,6 +156,14 @@ class Quiz extends Component {
                         </Typography>
                     </Grid>
                 )}
+                {userRole === "View" && (
+                    <Grid item xs={12} id="newCorrectAnswerHeader" className="Question_header_box">
+                        Correct Answer:
+                        <Typography id="newCorrectAnswer" className="Question_correct_answer">
+                            <li>{question.correctAnswer}</li>
+                        </Typography>
+                    </Grid>
+                )}
             </Grid>
         ));
 
